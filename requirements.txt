@@ -12,3 +12,5 @@ qrcode
 seaborn
 lime
 shap
+
+protobuf<5
