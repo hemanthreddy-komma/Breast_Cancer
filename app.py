@@ -1,10 +1,14 @@
 import streamlit as st
 import numpy as np
-import cv2
 import tensorflow as tf
 import shap
 from lime import lime_image
 from skimage.segmentation import mark_boundaries
+try:
+    import cv2
+except:
+    import cv2 as cv
+    cv2 = cv
 
 st.set_page_config(layout="wide")
 
@@ -113,3 +117,4 @@ if uploaded:
     st.subheader("📊 Clinical Feature Impact")
     shap_vals = shap_explain(clinical)
     st.write(dict(zip(["Age","Density","Mass Shape"], shap_vals[0][0])))
+
